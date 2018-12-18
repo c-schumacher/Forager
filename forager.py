@@ -78,11 +78,11 @@ class Forager(MCEngine):
         for i in range(locations):
             Cx, Cy = resources[i][0], resources[i][1]
 
-            C = np.array([Cx,Cy]) # center of the circle
-            r = resRadius #radius of food resource
-            A = np.array([Ax,Ay]) #starting point
-            B = np.array([Bx,By]) #ending point
-            V = B-A  #vector along the points
+            C = np.array([Cx,Cy])
+            r = resRadius
+            A = np.array([Ax,Ay])
+            B = np.array([Bx,By]) 
+            V = B-A  
 
             a = np.dot(V,V)
             b = 2 * np.dot(V,A-C)
