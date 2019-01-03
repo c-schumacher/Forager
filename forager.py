@@ -77,24 +77,20 @@ class Forager(MCEngine):
         locations = len(resources)
         for i in range(locations):
             Cx, Cy = resources[i][0], resources[i][1]
-
             C = np.array([Cx,Cy])
             r = resRadius
             A = np.array([Ax,Ay])
             B = np.array([Bx,By]) 
             V = B-A  
-
             a = np.dot(V,V)
             b = 2 * np.dot(V,A-C)
             c = np.dot(A,A) + np.dot(C,C) - 2*np.dot(A,C) - r**2
             disc = b**2 - 4*a*c
             if disc < 0:
                 continue
-
             sqrt_disc = sqrt(disc)
             t1 = (-b + sqrt_disc) / (2*a)
             t2 = (-b - sqrt_disc) / (2*a)
-
             if not (0 <= t1 <= 1 or 0 <= t2 <= 1):
                 continue
             else:
@@ -117,7 +113,6 @@ class Forager(MCEngine):
         ax.set_ylim((-ar-5, ar+5))
         x,y = zip(*hist)
         ax.plot(x,y, color='black')
-
         ax.add_artist(circle)
         for i in range(len(fcen)):
             circle2 = plt.Circle((fcen[i][0] , fcen[i][1]), fr, color='g', fill=True)
