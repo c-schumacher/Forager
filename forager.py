@@ -1,15 +1,15 @@
 class Forager(MCEngine):
-    def __init__(self, agarRadius, foodRadius, resourceCount):
+    def __init__(self, envRadius, resoRadius, resoCount):
         MCEngine.__init__(self)
-        self.agarRadius = agarRadius
-        self.foodRadius = foodRadius
-        self.resourceCount = resourceCount
+        self.envRadius = envRadius
+        self.resoRadius = resoRadius
+        self.resoCount = resoCount
         self.results = np.zeros([0,8])
     
     def simulate_once(self):
-        ar = self.agarRadius
-        fr = self.foodRadius
-        rc = self.resourceCount if self.resourceCount is not None else random.randrange(1,6)
+        ar = self.envRadius
+        fr = self.resoRadius
+        rc = self.resoCount if self.resoCount is not None else random.randrange(1,6)
         
         x0, y0 = 0.0, 0.0
         norm = lambda (x0,y0),(x1,y1) : sqrt((x1-x0)**2 + (y1-y0)**2)
